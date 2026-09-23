@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import heroImg from './assets/hero.png';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
+import { createFileRoute } from '@tanstack/react-router';
+import heroImg from '../assets/hero.png';
+import reactLogo from '../assets/react.svg';
+import viteLogo from '../assets/vite.svg';
 
-function App() {
+const Index = () => {
     const [count, setCount] = useState(0);
 
     return (
@@ -27,7 +28,7 @@ function App() {
                 <div>
                     <h1>Get started</h1>
                     <p>
-                        Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+                        Edit <code>src/routes/index.tsx</code> and save to test <code>HMR</code>
                     </p>
                 </div>
                 <button
@@ -129,6 +130,8 @@ function App() {
             <section id='spacer' className='h-22 border-t border-(--border) max-[1024px]:h-12'></section>
         </>
     );
-}
+};
 
-export default App;
+export const Route = createFileRoute('/')({
+    component: Index,
+});

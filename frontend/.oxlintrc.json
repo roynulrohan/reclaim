@@ -18,5 +18,13 @@
         "tailwindcss/enforce-canonical": "warn",
         "tailwindcss/prefer-scale-token": ["warn", { "step": 0.25 }],
         "tailwindcss/no-unnecessary-arbitrary-value": "warn"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["src/routes/**/*.tsx"],
+            "rules": {
+                "react/only-export-components": "off"
+            }
+        }
+    ]
 }
