@@ -1,0 +1,38 @@
+# Keep generated and local-only files out of formatting.
+
+# Dependencies
+node_modules/
+
+# Lock files
+bun.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.sanity/
+
+# Generated files
+**/routeTree.gen.ts
+**/_generated/
+
+# IDE & System files
+.DS_Store
+Thumbs.db
+*.log
+*.logs
+
+# Version control
+.git/
+.svn/
+.hg/
+
+# Environment files
+.env
+.env.*
