@@ -1,29 +1,39 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { Button, buttonVariants } from '@/components/ui/button';
+
+// Links styled as buttons. TanStack Router sets data-status="active" on the link for the current page.
+const navLinkClass = buttonVariants({ variant: 'ghost', size: 'sm', className: 'data-[status=active]:bg-muted' });
 
 const RootLayout = () => (
-    <>
-        <header className='flex items-center justify-between gap-4 border-b border-(--border) px-8 py-4 max-[1024px]:px-5'>
-            <Link to='/' className='text-lg font-semibold tracking-tight text-(--text-h) no-underline hover:text-(--accent)'>
-                Reclaim
-            </Link>
-            <nav aria-label='Main navigation' className='flex items-center gap-2 text-sm'>
-                <Link
-                    to='/'
-                    activeOptions={{ exact: true }}
-                    className='rounded-md px-3 py-2 text-(--text) no-underline hover:bg-(--social-bg) hover:text-(--text-h) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) [&.active]:bg-(--accent-bg) [&.active]:text-(--accent)'>
-                    Home
+    <div className='flex min-h-svh flex-col'>
+        <header className='border-b'>
+            <div className='mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4'>
+                <Link to='/' className='font-heading text-base font-semibold tracking-tight'>
+                    Reclaim
                 </Link>
-                <Link
-                    to='/about'
-                    className='rounded-md px-3 py-2 text-(--text) no-underline hover:bg-(--social-bg) hover:text-(--text-h) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) [&.active]:bg-(--accent-bg) [&.active]:text-(--accent)'>
-                    About
-                </Link>
-            </nav>
+                <nav aria-label='Main navigation' className='flex items-center gap-1'>
+                    <Link to='/' activeOptions={{ exact: true }} className={navLinkClass}>
+                        Home
+                    </Link>
+                    <Link to='/about' className={navLinkClass}>
+                        About
+                    </Link>
+                    {/* Wired up to the login page once frontend auth is built. */}
+                    <Button size='sm' className='ml-2'>
+                        Log in
+                    </Button>
+                </nav>
+            </div>
         </header>
-        <Outlet />
+        <main className='mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 py-16'>
+            <Outlet />
+        </main>
+        <footer className='border-t'>
+            <div className='mx-auto w-full max-w-5xl px-4 py-6 text-sm text-muted-foreground'>© 2026 Reclaim</div>
+        </footer>
         <TanStackRouterDevtools />
-    </>
+    </div>
 );
 
 export const Route = createRootRoute({ component: RootLayout });

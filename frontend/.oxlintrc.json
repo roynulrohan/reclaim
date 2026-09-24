@@ -21,9 +21,15 @@
     },
     "overrides": [
         {
-            "files": ["src/routes/**/*.tsx"],
+            "files": ["src/routes/**/*.tsx", "src/components/ui/**/*.tsx"],
             "rules": {
                 "react/only-export-components": "off"
+            }
+        },
+        {
+            "files": ["src/components/ui/**/*.tsx"],
+            "rules": {
+                "tailwindcss/enforce-canonical": "off"
             }
         }
     ]

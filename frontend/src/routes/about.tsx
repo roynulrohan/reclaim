@@ -2,12 +2,12 @@ import { createFileRoute } from '@tanstack/react-router';
 
 const About = () => {
     return (
-        <main className='flex grow items-center justify-center px-5 py-16'>
-            <section className='w-full max-w-xl rounded-lg border border-(--border) bg-(--social-bg) p-8 text-left'>
-                <h2>About</h2>
-                <p>Hello from About!</p>
-            </section>
-        </main>
+        <section className='my-auto flex flex-col items-center gap-4 text-center'>
+            <h1 className='font-heading text-4xl font-semibold tracking-tight'>About</h1>
+            <p className='max-w-md text-lg text-muted-foreground'>
+                A second page to show routing. It lives in <code className='font-mono text-base'>src/routes/about.tsx</code>.
+            </p>
+        </section>
     );
 };
 
