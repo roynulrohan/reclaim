@@ -2,6 +2,7 @@
     "$schema": "./node_modules/oxlint/configuration_schema.json",
     "plugins": ["react", "typescript", "oxc"],
     "jsPlugins": ["oxlint-tailwindcss"],
+    "ignorePatterns": ["src/components/ui/**"],
     "settings": {
         "tailwindcss": {
             "entryPoint": "src/index.css"
@@ -21,15 +22,9 @@
     },
     "overrides": [
         {
-            "files": ["src/routes/**/*.tsx", "src/components/ui/**/*.tsx"],
+            "files": ["src/routes/**/*.tsx"],
             "rules": {
                 "react/only-export-components": "off"
-            }
-        },
-        {
-            "files": ["src/components/ui/**/*.tsx"],
-            "rules": {
-                "tailwindcss/enforce-canonical": "off"
             }
         }
     ]
