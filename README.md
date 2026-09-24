@@ -41,8 +41,8 @@ Not required, but this is the smoothest way to work on the project:
 
 ### 1. Get the code
 
-```powershell
-git clone <repository URL>
+```bash
+git clone https://github.com/roynulrohan/reclaim.git
 cd reclaim
 ```
 
