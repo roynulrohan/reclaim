@@ -1,17 +1,9 @@
 package com.reclaim.backend.user;
 
-import java.time.Instant;
-
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.Instant;
 
 // "user" is a reserved word in PostgreSQL, so the table is called "users".
 @Entity
@@ -39,7 +31,6 @@ public class User {
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
-    // JPA needs an empty constructor to load rows from the database.
     protected User() {
     }
 

@@ -1,7 +1,7 @@
 package com.reclaim.backend.auth;
 
-import java.time.Instant;
-
+import com.reclaim.backend.config.JwtProperties;
+import com.reclaim.backend.user.User;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -9,8 +9,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 
-import com.reclaim.backend.config.JwtProperties;
-import com.reclaim.backend.user.User;
+import java.time.Instant;
 
 @Service
 public class TokenService {
@@ -23,7 +22,6 @@ public class TokenService {
         this.jwtProperties = jwtProperties;
     }
 
-    // The subject is the user's id. The role claim is what SecurityConfig uses for hasRole checks.
     public String createToken(User user) {
         Instant now = Instant.now();
         JwtClaimsSet claims = JwtClaimsSet.builder()

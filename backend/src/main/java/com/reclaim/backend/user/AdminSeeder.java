@@ -8,8 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-// Creates the first admin on startup when the users table is empty.
-// Once any user exists this does nothing, so changing .env later has no effect.
 @Component
 public class AdminSeeder implements ApplicationRunner {
 

@@ -1,7 +1,8 @@
 package com.reclaim.backend.auth;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.reclaim.backend.user.Role;
+import com.reclaim.backend.user.User;
+import com.reclaim.backend.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.reclaim.backend.user.Role;
-import com.reclaim.backend.user.User;
-import com.reclaim.backend.user.UserRepository;
+import static org.assertj.core.api.Assertions.assertThat;
 
-// Runs against the database in your .env. @Transactional rolls back after each test,
-// so the test user never stays in the database.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
